@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>测试</title>
+    <!--    <meta http-equiv="refresh" content="20">-->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        #content {
+            color: #FF4567;
+            font-size: 40px;
+        }
+    </style>
+    <script type="text/javascript">
+        function getMsg() {
+            var result = window.android.back();
+            document.getElementById("temp").innerHTML = "从安卓中获取的值:"+result;
+        }
+        //无参无返回值的方法
+        function show() {
+            document.getElementById("temp").innerHTML = "Hello world";
+        }
+
+        //有返回值的方法
+        function sum(i, j) {
+            return i + j;
+        }
+
+        //有参无返回值的方法
+        function alertMsg(message) {
+            alert(message);
+        }
+
+        function javaCallJs(arg) {
+            document.getElementById("content").innerHTML =
+                ("欢迎：" + arg);
+        }
+    </script>
+</head>
+
+<body onLoad="init();">
+
+    <div id="temp">标题页面</div>
+    <div align="left" id="content"></div>
+    <div align="left">这是H5页面</div>
+
+    <p><img width="30%" height="320"
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490433744477&di=62977511a6e3e7d076629e2114005b0a&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F6f061d950a7b0208e95284e160d9f2d3572cc813.jpg">
+    </p>
+    <!--调用Android原生代码:
+    onclick = "window.+Android传过来的对象名.+对象中的方法"
+-->
+    <input type="button" width="40%" value="点击Android被调用" onclick="window.Android.showToast()" />
+    <br/>
+    <button id="btn" width="40%" height="50" onclick="getMsg()">按钮</button>
+
+</body>
+
+
+</html>
